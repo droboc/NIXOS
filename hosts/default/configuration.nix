@@ -41,10 +41,10 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
- fonts.packages = with pkgs; [
-  nerd-fonts.jetbrains-mono
-  openmoji-color
-]; 
+fonts.packages = with pkgs; [
+  nerd-fonts.jetbrains-mono  # Mantener para los iconos
+  openmoji-color             # Ya la tenías en tu configuración
+];
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -73,6 +73,16 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+   pavucontrol
+   networkmanager
+   playerctl
+   btop
+   light
+   hyprpaper
+   hyprpicker
+   hypridle
+   hyprlock
+   grimblast
    imagemagick
    lazygit
    sqlite
