@@ -74,7 +74,7 @@
 
   
   programs = {
-    neovim = (import ../../modules/home-manager/neovim.nix { inherit config pkgs inputs; });
+    neovim = (import ../../modules/home-manager/neovim.nix { inherit config pkgs ; });
   };
 
   # Let Home Manager install and manage itself.
