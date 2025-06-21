@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    python3
+    python3Packages.pip
     go
     gopls
     lua-language-server
@@ -10,5 +12,7 @@
     tailwindcss
     tailwindcss-language-server
     typescript-language-server
+    ruff
+    python313Packages.python-lsp-server
   ];
 }

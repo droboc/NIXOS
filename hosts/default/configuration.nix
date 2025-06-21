@@ -73,6 +73,9 @@ fonts.packages = with pkgs; [
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+   atuin
+   nushell
+   zip
    libreoffice
    stow
    neovim
