@@ -4,6 +4,7 @@
     python3
     python3Packages.pip
     go
+    rust
     gopls
     lua-language-server
     stylua
