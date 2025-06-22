@@ -73,6 +73,9 @@ fonts.packages = with pkgs; [
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+   pciutils
+   starship
+   zsh
    atuin
    nushell
    zip
@@ -139,7 +142,7 @@ fonts.packages = with pkgs; [
     extraPortals = [pkgs.xdg-desktop-portal-hyprland];
   };
 
-  
+  programs.zsh.enable = true; 
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
@@ -148,6 +151,7 @@ fonts.packages = with pkgs; [
   users.users.drobles = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    shell=pkgs.zsh;
     packages = with pkgs; [
        tree
     ];
