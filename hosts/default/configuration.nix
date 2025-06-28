@@ -56,8 +56,16 @@
 
   # Services mínimos
   services = {
-    # Display manager básico
-    displayManager.sddm.enable = true;
+    # greetd: Display manager moderno en Rust para Wayland
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri";
+          user = "greeter";
+        };
+      };
+    };
 
     # Audio
     pipewire = {
