@@ -9,22 +9,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    # AGS (Aylur's Gtk Shell) for advanced widgets
-    ags = {
-      url = "github:Aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
+    niri = {
+      url = "github:sodiboo/niri-flake";
     };
-    
-    # Hyprland (optional, if you want the latest version)
-    # hyprland = {
-    #   url = "github:hyprwm/Hyprland";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-   
-   /* neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    }; */
   };
   
   outputs = { self, nixpkgs, ... }@inputs: {

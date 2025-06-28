@@ -1,19 +1,30 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    python3
-    python3Packages.pip
-    go
-    bun
-    gopls
-    lua-language-server
-    stylua
+    # Build essentials
     gcc
+
+    # Python
+    python3
+    python3Packages.python-lsp-server
+    python3Packages.requests
+    ruff  # linter + formatter
+
+    # Go
+    go
+    gopls  # LSP
+
+    # JavaScript/TypeScript
     nodejs
+    bun
+    typescript-language-server
+
+    # CSS/Tailwind
     tailwindcss
     tailwindcss-language-server
-    typescript-language-server
-    ruff
-    python313Packages.python-lsp-server
+
+    # Lua
+    lua-language-server
+    stylua  # formatter
   ];
 }
