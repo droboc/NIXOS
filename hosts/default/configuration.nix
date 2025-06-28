@@ -91,6 +91,15 @@
     fuzzel
   ];
 
+
+  xdg.portal = {
+    enable = true;
+    configPackages = [
+      pkgs.xdg-desktop-portal-gtk # Essential for GTK applications
+      pkgs.xdg-desktop-portal-wlr
+    ];
+  };
+
   # Security básico
   security.sudo.wheelNeedsPassword = false;
 
