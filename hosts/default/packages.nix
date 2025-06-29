@@ -7,8 +7,8 @@ with pkgs;
 [
   # Applications
   discord
-  firefox
-  ghostty
+  
+  
   alacritty
   fuzzel
 

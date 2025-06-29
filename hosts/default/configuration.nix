@@ -50,9 +50,9 @@
 
   # Programs mínimos
   programs = {
-    firefox.enable = true;
+    
     git.enable = true;
-    niri.enable = true;
+    
   };
 
   # Services mínimos

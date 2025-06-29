@@ -10,6 +10,12 @@ let
   allPackages = import ./packages.nix { inherit pkgs; };
 in
 {
+  imports = [
+    ../../home/niri/default.nix
+    ../../home/programs/ghostty.nix
+    ../../home/programs/firefox.nix
+  ];
+
   home.username = "drobles";
   home.homeDirectory = "/home/drobles";
 
@@ -18,7 +24,7 @@ in
   home.stateVersion = "24.11";
 
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   programs.home-manager.enable = true;
