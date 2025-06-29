@@ -1,10 +1,10 @@
 # Configuración NixOS limpia
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, self, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/languages.nix
+    "${self}/system/packages.nix"
   ];
 
   # Boot configuration básico
@@ -78,19 +78,6 @@
     openssh.enable = true;
   };
 
-  # Paquetes esenciales mínimos
-  environment.systemPackages = with pkgs; [
-    # Development
-    git curl wget vim
-
-    # Applications
-    discord
-    firefox
-    ghostty
-    alacritty
-    fuzzel
-  ];
-
   # Security básico
   security.sudo.wheelNeedsPassword = false;
 
@@ -104,7 +91,7 @@
   # Home Manager
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users.drobles = import ./home.nix;
+    users."drobles" = import ./home.nix;
   };
 
   system.stateVersion = "24.11";
