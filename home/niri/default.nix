@@ -1,3 +1,12 @@
 {
-  programs.niri.enable = true;
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+
+{
+  imports = [
+    inputs.niri.homeModules.niri
+  ];
 }

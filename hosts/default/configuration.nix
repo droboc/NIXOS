@@ -6,6 +6,8 @@
     ./hardware-configuration.nix
     "${self}/system/packages.nix"
     "${self}/system/greeter/greetd.nix"
+    "${self}/system/xdg.nix"
+    "${self}/system/environment.nix"
   ];
 
   # Boot configuration básico
