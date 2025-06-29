@@ -1,120 +1,91 @@
-{ lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
-  programs.niri.settings = {
-    # Input configuration
-    input = {
-      keyboard.xkb = {
-        # You can set rules, model, layout, variant and options.
-        # layout = "us,ru";
-        # options = "grp:win_space_toggle,compose:ralt,ctrl:nocaps";
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri;
+    settings = {
+      workspaces = {
+        "browser" = {};
+        "vesktop" = {};
       };
 
-      touchpad = {
-        tap = true;
-        natural-scroll = true;
-        # dwt = true;
-        # dwtp = true;
-        # drag-lock = true;
-        # accel-speed = 0.2;
-        # accel-profile = "flat";
-        # scroll-method = "two-finger";
-        # disabled-on-external-mouse = true;
+      prefer-no-csd = true;
+
+      hotkey-overlay = {
+        skip-at-startup = true;
       };
 
-      mouse = {
-        # natural-scroll = true;
-        # accel-speed = 0.2;
-        # accel-profile = "flat";
-        # scroll-method = "no-scroll";
+      layout = {
+        focus-ring = {
+          enable = true;
+          width = 3;
+          active = {
+            color = "#c488ec";
+          };
+          inactive = {
+            color = "#505050";
+          };
+        };
+
+        gaps = 6;
+
+        struts = {
+          left = 20;
+          right = 20;
+          top = 20;
+          bottom = 20;
+        };
       };
 
-      trackpoint = {
-        # natural-scroll = true;
-        # accel-speed = 0.2;
-        # accel-profile = "flat";
-        # scroll-method = "on-button-down";
-        # scroll-button = 273;
-        # middle-emulation = true;
+      input = {
+        keyboard.xkb.layout = "de";
+        touchpad = {
+          click-method = "button-areas";
+          dwt = true;
+          dwtp = true;
+          natural-scroll = true;
+          scroll-method = "two-finger";
+          tap = true;
+          tap-button-map = "left-right-middle";
+          middle-emulation = true;
+          accel-profile = "adaptive";
+        };
+        focus-follows-mouse.enable = true;
+        warp-mouse-to-focus.enable = false;
       };
 
-      # warp-mouse-to-focus = true;
-      # focus-follows-mouse.max-scroll-amount = "0%";
-    };
-
-    # Output configuration - Tu monitor QM-G24
-    outputs."DP-2" = {
-      mode = "1920x1080@60.000";  # Modo actual (puedes cambiar a 165Hz si quieres)
-      scale = 1.0;  # 100% scaling (perfecto para tu monitor de 24")
-      transform = "normal";
-      position = {
-        x = 0;
-        y = 0;
-      };
-    };
-    
-    # Alternativas de refresh rate para tu monitor:
-    # mode = "1920x1080@165.001";  # Máximo refresh rate
-    # mode = "1920x1080@144.042";  # 144Hz para gaming
-    # mode = "1920x1080@120.000";  # 120Hz
-    
-    # Si quieres texto más grande, puedes usar:
-    # scale = 1.25;  # 125% scaling
-
-    # Layout configuration
-    layout = {
-      gaps = 16;
-      center-focused-column = "never";
-      
-      preset-column-widths = [
-        { proportion = 0.33333; }
-        { proportion = 0.5; }
-        { proportion = 0.66667; }
-      ];
-
-      default-column-width = { proportion = 0.5; };
-
-      focus-ring = {
-        enable = true;
-        width = 4;
-        active-color = "#7fc8ff";
-        inactive-color = "#505050";
+      outputs = {
+        "DP-2" = {
+          mode = {
+            width = 1920;
+            height = 1080;
+            refresh = 60.000;  # Puedes cambiar a 165.001, 144.042, o 120.000
+          };
+          scale = 1.0;
+          position = { x = 0; y = 0; };
+        };
       };
 
-      border = {
-        enable = false;
-        width = 4;
-        active-color = "#ffc87f";
-        inactive-color = "#505050";
+      cursor = {
+        size = 20;
+        theme = "Adwaita";
       };
 
-      shadow = {
-        enable = false;
-        # softness = 30;
-        # spread = 5;
-        # offset = { x = 0; y = 5; };
-        # color = "#0007";
-      };
+      environment = {
+        CLUTTER_BACKEND = "wayland";
+        GDK_BACKEND = "wayland,x11";
+        MOZ_ENABLE_WAYLAND = "1";
+        NIXOS_OZONE_WL = "1";
+        QT_QPA_PLATFORM = "wayland";
+        QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+        ELECTRON_OZONE_PLATFORM_HINT = "auto";
+        ELECTRON_ENABLE_HARDWARE_ACCELERATION = "1";
 
-      struts = {
-        # left = 64;
-        # right = 64;
-        # top = 64;
-        # bottom = 64;
+        XDG_SESSION_TYPE = "wayland";
+        XDG_CURRENT_DESKTOP = "niri";
+        DISPLAY = ":0";
       };
     };
-
-    # Screenshot configuration
-    screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
-
-    # Animation settings
-    animations = {
-      # enable = true;
-      # slowdown = 1.0;
-    };
-
-    # Window rules are defined in rules.nix
-    # Keybinds are defined in keybinds.nix
-    # Autostart apps are defined in autostart.nix
   };
 }
