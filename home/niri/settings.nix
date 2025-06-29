@@ -42,16 +42,24 @@
       # focus-follows-mouse.max-scroll-amount = "0%";
     };
 
-    # Output configuration
-    outputs."eDP-1" = {
-      mode = "1920x1080@120.030";
-      scale = 2.0;
+    # Output configuration - Tu monitor QM-G24
+    outputs."DP-2" = {
+      mode = "1920x1080@60.000";  # Modo actual (puedes cambiar a 165Hz si quieres)
+      scale = 1.0;  # 100% scaling (perfecto para tu monitor de 24")
       transform = "normal";
       position = {
-        x = 1280;
+        x = 0;
         y = 0;
       };
     };
+    
+    # Alternativas de refresh rate para tu monitor:
+    # mode = "1920x1080@165.001";  # Máximo refresh rate
+    # mode = "1920x1080@144.042";  # 144Hz para gaming
+    # mode = "1920x1080@120.000";  # 120Hz
+    
+    # Si quieres texto más grande, puedes usar:
+    # scale = 1.25;  # 125% scaling
 
     # Layout configuration
     layout = {
