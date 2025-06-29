@@ -5,6 +5,7 @@
   imports = [
     ./hardware-configuration.nix
     "${self}/system/packages.nix"
+    "${self}/system/greeter/greetd.nix"
   ];
 
   # Boot configuration básico
@@ -56,16 +57,7 @@
 
   # Services mínimos
   services = {
-    # greetd: Display manager moderno en Rust para Wayland
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri";
-          user = "greeter";
-        };
-      };
-    };
+    
 
     # Audio
     pipewire = {
@@ -90,6 +82,8 @@
 
   # Home Manager
   home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
     users."drobles" = import ./home.nix;
   };
