@@ -11,7 +11,6 @@ let
 in
 {
   imports = [
-    ../../home/niri/default.nix
     ../../home/programs/ghostty.nix
     ../../home/programs/firefox.nix
   ];

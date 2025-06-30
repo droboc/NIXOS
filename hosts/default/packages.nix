@@ -75,6 +75,7 @@ with pkgs;
   kdePackages.qtdeclarative
 
   # Niri (related packages)
+  niri
   xwayland-satellite
   grim
   slurp
