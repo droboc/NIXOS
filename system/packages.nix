@@ -12,7 +12,7 @@
     libsecret
     cage
     gamescope
-    xwayland-satellite-unstable
+    xwayland-satellite
     swaybg
   ];
 }
