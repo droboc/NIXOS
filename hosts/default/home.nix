@@ -11,9 +11,11 @@ let
 in
 {
   imports = [
-    ../../home/niri/default.nix
     ../../home/programs/ghostty.nix
     ../../home/programs/firefox.nix
+    ../../home/programs/fuzzel.nix
+    ../../home/programs/mako.nix
+    ../../home/niri/default.nix
   ];
 
   home.username = "drobles";
@@ -24,7 +26,7 @@ in
   home.stateVersion = "24.11";
 
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "vim";
   };
 
   programs.home-manager.enable = true;

@@ -1,44 +1,58 @@
-{ config, pkgs, ... }:
+
+{ config, pkgs, lib, ... }:
 
 {
   programs.niri = {
     enable = true;
     package = pkgs.niri;
-    settings = {
-      # Layout básico
-      layout = {
-        gaps = 6;
-        focus-ring = {
-          enable = true;
-          width = 3;
-          active.color = "#c488ec";
-          inactive.color = "#505050";
-        };
-      };
 
-      # Input básico
+    settings = {
       input = {
         keyboard.xkb.layout = "us";
-        focus-follows-mouse.enable = true;
+        mouse.accel-speed = 1.0;
       };
 
-      # Variables de entorno mínimas para Wayland
+      prefer-no-csd = true;
 
-      environment = {
-        CLUTTER_BACKEND = "wayland";
-        GDK_BACKEND = "wayland,x11";
-        MOZ_ENABLE_WAYLAND = "1";
-        NIXOS_OZONE_WL = "1";
-        QT_QPA_PLATFORM = "wayland";
-        QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-        ELECTRON_OZONE_PLATFORM_HINT = "auto";
-        ELECTRON_ENABLE_HARDWARE_ACCELERATION = "1";
-
-        XDG_SESSION_TYPE = "wayland";
-        XDG_CURRENT_DESKTOP = "niri";
-        DISPLAY = ":0";
+      layout = {
+        gaps = 16;
+        border.width = 4;
+        always-center-single-column = true;
+        shadow.enable = true;
       };
 
+      hotkey-overlay.skip-at-startup = true;
+      clipboard.disable-primary = true;
+
+      screenshot-path = "~/Pictures/Screenshots/%Y-%m-%dT%H:%M:%S.png";
+
+      # Asegúrate de que swaybg esté instalado (está en tus systemPackages)
+      # y reemplaza la ruta con la de tu fondo de pantalla.
+      spawn-at-startup = [
+        { command = [ "${pkgs.swaybg}/bin/swaybg" "-m" "fill" "-i" "/home/drobles/nixos/assets/wallpaper.png" ]; }
+      ];
+
+      window-rules = [
+        {
+          draw-border-with-background = false;
+          geometry-corner-radius = {
+            top-left = 8.0;
+            top-right = 8.0;
+            bottom-left = 8.0;
+            bottom-right = 8.0;
+          };
+          clip-to-geometry = true;
+        }
+        {
+          matches = [ { is-focused = false; } ];
+          opacity = 0.95;
+        }
+      ];
+
+      # Configuración de salida de ejemplo para un monitor de escritorio
+      # Reemplaza 'DP-2' con el nombre de tu monitor (puedes encontrarlo con `niri msg --json outputs`)
+      outputs."DP-2".scale = 1.0;
     };
   };
-}
+
+  }
