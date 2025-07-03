@@ -33,6 +33,6 @@ with pkgs;
 
   # Utilities
   vim
-  wpctl
+  pipewire
 
 ]
