@@ -16,7 +16,7 @@
 
       layout = {
         gaps = 16;
-        border.width = 4;
+        border.width = 2;
         always-center-single-column = true;
         shadow.enable = true;
       };
@@ -29,7 +29,8 @@
       # Asegúrate de que swaybg esté instalado (está en tus systemPackages)
       # y reemplaza la ruta con la de tu fondo de pantalla.
       spawn-at-startup = [
-        { command = [ "${pkgs.swaybg}/bin/swaybg" "-m" "fill" "-i" "/home/drobles/nixos/assets/wallpaper.png" ]; }
+        # Nix gestionará esta ruta relativa y la copiará a la store.
+        { command = [ "${pkgs.swaybg}/bin/swaybg" "-m" "fill" "-i" "${../../assets/wallpaper.jpg}" ]; }
       ];
 
       window-rules = [

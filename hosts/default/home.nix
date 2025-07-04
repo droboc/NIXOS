@@ -16,6 +16,7 @@ in
     ../../home/programs/fuzzel.nix
     ../../home/programs/mako.nix
     ../../home/niri/default.nix
+    ../../home/programs/nvim.nix
   ];
 
   home.username = "drobles";

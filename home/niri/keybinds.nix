@@ -15,6 +15,7 @@ in
     in
     {
       # --- Atajos Esenciales ---
+      "${Mod}+E".action = spawn "thunar";
       "${Mod}+T".action = spawn terminal;
       "${Mod}+D".action = spawn "fuzzel";
       "${Mod}+Q".action = close-window;
@@ -53,17 +54,17 @@ in
 
       # --- Espacios de Trabajo (Workspaces) ---
       # Cambiar a un espacio de trabajo
-      "${Mod}+1".action.focus-workspace = [ 2 ];
-      "${Mod}+2".action.focus-workspace = [ 3 ];
-      "${Mod}+3".action.focus-workspace = [ 4 ];
-      "${Mod}+4".action.focus-workspace = [ 5 ];
-      "${Mod}+5".action.focus-workspace = [ 6 ];
+      "${Mod}+1".action.focus-workspace = [ 1 ];
+      "${Mod}+2".action.focus-workspace = [ 2 ];
+      "${Mod}+3".action.focus-workspace = [ 3 ];
+      "${Mod}+4".action.focus-workspace = [ 4 ];
+      "${Mod}+5".action.focus-workspace = [ 5 ];
 
       # Mover ventana a un espacio de trabajo
-      "${Mod}+Ctrl+1".action.move-window-to-workspace = [ 2 ];
-      "${Mod}+Ctrl+2".action.move-window-to-workspace = [ 3 ];
-      "${Mod}+Ctrl+3".action.move-window-to-workspace = [ 4 ];
-      "${Mod}+Ctrl+4".action.move-window-to-workspace = [ 5 ];
-      "${Mod}+Ctrl+5".action.move-window-to-workspace = [ 6 ];
+      "${Mod}+Ctrl+1".action.move-window-to-workspace = [ 1 ];
+      "${Mod}+Ctrl+2".action.move-window-to-workspace = [ 2 ];
+      "${Mod}+Ctrl+3".action.move-window-to-workspace = [ 3 ];
+      "${Mod}+Ctrl+4".action.move-window-to-workspace = [ 4 ];
+      "${Mod}+Ctrl+5".action.move-window-to-workspace = [ 5 ];
     };
 }

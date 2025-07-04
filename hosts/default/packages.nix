@@ -10,6 +10,7 @@ with pkgs;
   discord
   alacritty
   fuzzel
+  xfce.thunar
 
   # Development
   nodejs
@@ -34,5 +35,7 @@ with pkgs;
   # Utilities
   vim
   pipewire
+  mako
+  libnotify
 
 ]
