@@ -79,6 +79,7 @@
     isNormalUser = true;
     description = "drobles";
     extraGroups = [ "wheel" ];
+    shell = pkgs.nushell;
   };
 
   # Home Manager

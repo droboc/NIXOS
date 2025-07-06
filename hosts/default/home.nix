@@ -17,6 +17,7 @@ in
     ../../home/programs/mako.nix
     ../../home/niri/default.nix
     ../../home/programs/nvim.nix
+    ../../system/shell/nushell.nix
   ];
 
   home.username = "drobles";
